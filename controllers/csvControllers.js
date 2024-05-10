@@ -1,4 +1,4 @@
-const https = require("https"); // or 'https' for https:// URLs
+const https = require("https");
 const fs = require("fs");
 
 const PORT = process.env.PORT || 8000;
