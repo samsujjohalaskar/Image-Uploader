@@ -3,7 +3,14 @@ const csvController = require("../controllers/csvControllers");
 const multer = require("multer");
 const path = require("path");
 
-const storage = multer.memoryStorage(); // Use memory storage for file uploads
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/images'); // Save uploaded files to the 'public/images' directory
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + '-' + file.originalname); // Generate a unique filename
+  }
+});
 
 const upload = multer({
   storage: storage,
