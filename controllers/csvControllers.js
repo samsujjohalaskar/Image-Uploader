@@ -15,7 +15,7 @@ exports.create = async (req, res) => {
     res.json({
       success: 1,
       file: {
-        url: `http://localhost:${PORT}/${imagePath}`,
+        url: `https://image-uploader-eight-kappa.vercel.app/${imagePath}`,
       },
     });
   } catch (error) {
@@ -39,7 +39,7 @@ exports.createByUrl = async (req, res) => {
         res.json({
           success: 1,
           file: {
-            url: `http://localhost:${PORT}/${imagePath}`,
+            url: `https://image-uploader-eight-kappa.vercel.app/${imagePath}`,
           },
         });
       });
