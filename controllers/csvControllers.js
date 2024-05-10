@@ -7,15 +7,16 @@ exports.create = async (req, res) => {
   try {
     const image = req.file;
 
-    let imagePath = "";
-    if (image) {
-      imagePath = image.path;
+    // Check if an image was uploaded
+    if (!image) {
+      return res.status(400).json({ success: 0, message: "No image uploaded" });
     }
-
+    // Generate a unique filename
+    const fileName = `${Date.now()}-${image.originalname}`;
     res.json({
       success: 1,
       file: {
-        url: `https://image-uploader-eight-kappa.vercel.app/${imagePath}`,
+        url: `https://image-uploader-eight-kappa.vercel.app/public/images/${fileName}`,
       },
     });
   } catch (error) {
