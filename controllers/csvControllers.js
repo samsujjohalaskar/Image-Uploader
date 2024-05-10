@@ -1,7 +1,7 @@
 const https = require("https"); // or 'https' for https:// URLs
 const fs = require("fs");
 
-const SERVER_URL = process.env.SERVER_URL;
+const PORT = process.env.PORT || 8000;
 
 exports.create = async (req, res) => {
   try {
@@ -15,7 +15,7 @@ exports.create = async (req, res) => {
     res.json({
       success: 1,
       file: {
-        url: `${SERVER_URL}/${imagePath}`,
+        url: `https://image-uploader-eight-kappa.vercel.app/${imagePath}`,
       },
     });
   } catch (error) {
@@ -39,7 +39,7 @@ exports.createByUrl = async (req, res) => {
         res.json({
           success: 1,
           file: {
-            url: `${SERVER_URL}/${imagePath}`,
+            url: `https://image-uploader-eight-kappa.vercel.app/${imagePath}`,
           },
         });
       });
